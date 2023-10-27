@@ -11,6 +11,7 @@ import java.util.Random;
 
 @Service
 public class ContactService {
+    private static final Random rnd = new Random();
     private List<Contact> cachedList = Collections.EMPTY_LIST;
 
     public List<Contact> genContactList(int count){
@@ -23,9 +24,9 @@ public class ContactService {
             Contact contact = new Contact();
             contact.setUid(100 + i);
             contact.setName(Util.getName());
-            contact.setSex((new Random()).nextInt() %2 ==0?(byte)1:0);
+            contact.setSex((rnd).nextInt() %2 ==0?(byte)1:0);
             contact.setIcon("https://picsum.photos/200");
-            contact.setDesc(Util.generateRandomString(new Random().nextInt(200)));
+            contact.setDesc(Util.generateRandomString(rnd.nextInt(200)));
             contact.setJobNo(contact.getUid()+"");
             contact.setDepartmentId(Util.generateRandomString(8));
             contact.setPosition(Util.generateRandomString(16));
